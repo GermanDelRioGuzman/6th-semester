@@ -11,7 +11,7 @@ public class PaintApp {
     }
 
     enum Tool {
-        PENCIL, RECTANGLE, OVAL, ARC, ERASER
+        PENCIL, RECTANGLE, OVAL, ERASER
     }
 
     private static final Color[] COLOR_PALLETE = {
@@ -43,6 +43,11 @@ public class PaintApp {
 
         public void setCurrentColor(Color color) {
             this.currentColor = color;
+        }
+
+        public void clearShapes() {
+            shapes.clear();
+            repaint();
         }
 
         public DrawingPanel() {
@@ -94,19 +99,9 @@ public class PaintApp {
                             );
                             currentShape = new ColoredShape(shape, currentColor);
                             break;
-                        case ARC:
-                            shape = new Arc2D.Double(
-                                Math.min(startPoint.x, endPoint.x),
-                                Math.min(startPoint.y, endPoint.y),
-                                Math.abs(endPoint.x - startPoint.x),
-                                Math.abs(endPoint.y - startPoint.y),
-                                0, 180, Arc2D.OPEN
-                            );
-                            currentShape = new ColoredShape(shape, currentColor);
-                            break;
                         case ERASER:
                             shape = new Line2D.Double(startPoint, endPoint);
-                            shapes.add(new ColoredShape(shape, Color.white));
+                            shapes.add(new ColoredShape(shape, Color.white)); // background color
                             startPoint = endPoint;
                             break;
                     }
@@ -147,9 +142,14 @@ public class PaintApp {
         addToolButton(toolPanel, toolGroup, "Pencil", Tool.PENCIL, drawingPanel);
         addToolButton(toolPanel, toolGroup, "Rectangle", Tool.RECTANGLE, drawingPanel);
         addToolButton(toolPanel, toolGroup, "Oval", Tool.OVAL, drawingPanel);
-        addToolButton(toolPanel, toolGroup, "Arc", Tool.ARC, drawingPanel);
         addToolButton(toolPanel, toolGroup, "Eraser", Tool.ERASER, drawingPanel);
 
+        // Clear button (not part of the toggle group)
+        JButton clearButton = new JButton("Clear");
+        clearButton.addActionListener(e -> drawingPanel.clearShapes());
+        toolPanel.add(clearButton);
+
+        // Color palette
         for (Color color : COLOR_PALLETE) {
             JPanel colorPanel = new JPanel();
             colorPanel.setBackground(color);
