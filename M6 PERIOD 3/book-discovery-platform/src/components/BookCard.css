@@ -1,0 +1,26 @@
+.book-card button {
+  background-color: black;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: 0.2s ease;
+}
+
+.book-card button:hover {
+  background-color: #eee;
+}
+
+.stars {
+  color: #fbc02d;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.review {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 5px 0 10px;
+  color: #333;
+}

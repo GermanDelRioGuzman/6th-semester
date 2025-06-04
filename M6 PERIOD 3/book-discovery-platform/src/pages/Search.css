@@ -1,0 +1,25 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  gap: 10px;
+}
+
+.search-form input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}

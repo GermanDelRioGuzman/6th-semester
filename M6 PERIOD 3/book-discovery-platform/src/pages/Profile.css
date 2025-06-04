@@ -1,0 +1,57 @@
+/* Contenedor principal */
+.profile-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Encabezado */
+.profile-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Campos de entrada */
+.profile-container input,
+.profile-container textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Input deshabilitado (email) */
+.profile-container input:disabled {
+  background-color: #f0f0f0;
+  color: #888;
+}
+
+/* Textarea */
+.profile-container textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botón de guardar */
+.profile-container button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-container button:hover {
+  background-color: #0056b3;
+}
